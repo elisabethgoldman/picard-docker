@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y --force-yes \
     python-pip \
     python-virtualenv \
     python3-dev \
+    r-base \
     software-properties-common \
     time \
     unzip \
