@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:15.10
 
 MAINTAINER Jeremiah H. Savage <jeremiahsavage@gmail.com>
 
@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y --force-yes \
     gcc \
     gfortran \
     git \
-    openjdk-7-jre-headless \
+    openjdk-8-jre-headless \
     python-pip \
     python-virtualenv \
     python3-dev \
@@ -36,11 +36,11 @@ RUN mkdir ${HOME}/tools
 
 WORKDIR ${HOME}/tools/
 
-RUN wget https://github.com/broadinstitute/picard/releases/download/1.141/picard-tools-1.141.zip \
+RUN wget https://github.com/broadinstitute/picard/releases/download/2.0.1/picard-tools-2.0.1.zip \
     && git clone https://github.com/broadinstitute/picard.git \
     &&  mv ${HOME}/tools/picard/src ${HOME}/ \
-    && unzip picard-tools-1.141.zip \
-    && mv picard-tools-1.141 picard-tools \
+    && unzip picard-tools-2.0.1.zip \
+    && mv picard-tools-2.0.1 picard-tools \
     && rm *.zip
 
 WORKDIR ${HOME}
