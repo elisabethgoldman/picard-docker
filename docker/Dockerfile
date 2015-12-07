@@ -18,6 +18,7 @@ RUN apt-get update && apt-get install -y --force-yes \
     python3-dev \
     r-base \
     software-properties-common \
+    sudo \
     time \
     unzip \
     wget \
