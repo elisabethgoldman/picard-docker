@@ -1,33 +1,21 @@
-FROM ubuntu:15.10
+FROM quay.io/jeremiahsavage/cdis_base
+
+ENV picard_docker 0.1
 
 MAINTAINER Jeremiah H. Savage <jeremiahsavage@gmail.com>
 
 USER root
 
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update \
-    && apt-get dist-upgrade -y --force-yes
 
 RUN apt-get update && apt-get install -y --force-yes \
-    gcc \
-    gfortran \
-    git \
     openjdk-8-jre-headless \
-    python-pip \
-    python-virtualenv \
-    python3-dev \
     r-base \
-    software-properties-common \
-    sudo \
-    time \
     unzip \
-    wget \
-    zlib1g-dev
+    wget
 
 RUN apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-RUN adduser --disabled-password --gecos '' ubuntu && adduser ubuntu sudo && echo "ubuntu	ALL=(ALL)	NOPASSWD:ALL" >> /etc/sudoers.d/ubuntu
 
 USER ubuntu
 
@@ -37,11 +25,11 @@ RUN mkdir ${HOME}/tools
 
 WORKDIR ${HOME}/tools/
 
-RUN wget https://github.com/broadinstitute/picard/releases/download/2.0.1/picard-tools-2.0.1.zip \
+RUN wget https://github.com/broadinstitute/picard/releases/download/2.1.1/picard-tools-2.1.1.zip \
     && git clone https://github.com/broadinstitute/picard.git \
     &&  mv ${HOME}/tools/picard/src ${HOME}/ \
-    && unzip picard-tools-2.0.1.zip \
-    && mv picard-tools-2.0.1 picard-tools \
+    && unzip picard-tools-2.1.1.zip \
+    && mv picard-tools-2.1.1 picard-tools \
     && rm *.zip
 
 WORKDIR ${HOME}
