@@ -25,11 +25,11 @@ RUN mkdir ${HOME}/tools
 
 WORKDIR ${HOME}/tools/
 
-RUN wget https://github.com/broadinstitute/picard/releases/download/2.1.1/picard-tools-2.1.1.zip \
+RUN wget https://github.com/broadinstitute/picard/releases/download/2.2.4/picard-tools-2.2.4.zip \
     && git clone https://github.com/broadinstitute/picard.git \
     &&  mv ${HOME}/tools/picard/src ${HOME}/ \
-    && unzip picard-tools-2.1.1.zip \
-    && mv picard-tools-2.1.1 picard-tools \
+    && unzip picard-tools-2.2.4.zip \
+    && mv picard-tools-2.2.4 picard-tools \
     && rm *.zip
 
 WORKDIR ${HOME}
