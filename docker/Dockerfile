@@ -1,6 +1,6 @@
 FROM quay.io/jeremiahsavage/cdis_base
 
-ENV picard_docker 0.1
+ENV picard_docker 0.2
 
 MAINTAINER Jeremiah H. Savage <jeremiahsavage@gmail.com>
 
@@ -25,11 +25,11 @@ RUN mkdir ${HOME}/tools
 
 WORKDIR ${HOME}/tools/
 
-RUN wget https://github.com/broadinstitute/picard/releases/download/2.2.4/picard-tools-2.2.4.zip \
+RUN wget https://github.com/broadinstitute/picard/releases/download/2.3.0/picard-tools-2.3.0.zip \
     && git clone https://github.com/broadinstitute/picard.git \
     &&  mv ${HOME}/tools/picard/src ${HOME}/ \
-    && unzip picard-tools-2.2.4.zip \
-    && mv picard-tools-2.2.4 picard-tools \
+    && unzip picard-tools-2.3.0.zip \
+    && mv picard-tools-2.3.0 picard-tools \
     && rm *.zip
 
 WORKDIR ${HOME}
