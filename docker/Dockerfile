@@ -8,10 +8,10 @@ USER root
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN aptitude update \
-    && aptitude dist-upgrade -y --force-yes
+RUN apt-get update \
+    && apt-get upgrade -y --force-yes
 
-RUN aptitude update && aptitude install -y --force-yes \
+RUN apt-get update && apt-get install -y --force-yes \
     openjdk-8-jre-headless \
     r-base \
     sudo \
