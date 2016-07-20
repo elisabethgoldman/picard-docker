@@ -15,7 +15,6 @@ RUN apt-get update && apt-get install -y --force-yes \
     openjdk-8-jre-headless \
     r-base \
     sudo \
-    time \
     unzip \
     wget
 
@@ -29,8 +28,8 @@ RUN wget https://github.com/broadinstitute/picard/releases/download/2.5.0/picard
 
 RUN adduser --disabled-password --gecos '' ubuntu && adduser ubuntu sudo && echo "ubuntu	ALL=(ALL)	NOPASSWD:ALL" >> /etc/sudoers.d/ubuntu
 
-ENV HOME /home/ubuntu
-
 USER ubuntu
+
+ENV HOME /home/ubuntu
 
 WORKDIR ${HOME}
