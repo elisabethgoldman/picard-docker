@@ -1,4 +1,4 @@
-FROM ubuntu:xenial-20160809
+FROM ubuntu:xenial-20161010
 
 MAINTAINER Jeremiah H. Savage <jeremiahsavage@gmail.com>
 
@@ -8,6 +8,6 @@ RUN apt-get update \
        r-base \
        wget \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && wget https://github.com/broadinstitute/picard/releases/download/2.6.0/picard.jar \
-    && mv picard.jar /usr/local/bin/
+    && mv picard.jar /usr/local/bin/ \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
