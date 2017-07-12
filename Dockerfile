@@ -8,6 +8,6 @@ RUN apt-get update \
        r-base \
        wget \
     && apt-get clean \
-    && wget https://github.com/broadinstitute/picard/releases/download/2.6.0/picard.jar \
+    && wget https://github.com/broadinstitute/picard/releases/download/2.10.1/picard.jar \
     && mv picard.jar /usr/local/bin/ \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
