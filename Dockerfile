@@ -1,10 +1,10 @@
-FROM ubuntu:artful-20171019
+FROM ubuntu:bionic-20180426
 
 MAINTAINER Jeremiah H. Savage <jeremiahsavage@gmail.com>
 
 RUN apt-get update \
     && apt-get install -y \
-       openjdk-9-jre-headless \
+       openjdk-11-jre-headless \
        r-base \
        wget \
     && apt-get clean \
