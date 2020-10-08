@@ -13,6 +13,5 @@ RUN apt-get update \
        openjdk-11-jre-headless \
        r-base \
        wget \
-    && wget $PICARD_URL \
-    && ln -s picard.jar /usr/local/bin/ \
+    && wget -O /usr/local/bin/picard.jar $PICARD_URL \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
