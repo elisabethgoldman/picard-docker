@@ -1,4 +1,6 @@
-FROM quay.io/ncigdc/bio-ubuntu:20.04
+ARG REPOSITORY=docker.osdc.io
+ARG BUILDER_TAG=2.2.0
+FROM ${REPOSITORY}/ncigdc/base-u22.04-builder:${BUILDER_TAG}
 
 MAINTAINER Charles Czysz <czysz@uchicago.edu>
 
@@ -6,12 +8,11 @@ ARG VERSION
 
 ENV PICARD_URL=https://github.com/broadinstitute/picard/releases/download/${VERSION}/picard.jar
 
-ENV DEBIAN_FRONTEND=noninteractive
-
-RUN apt-get update \
+# Pre-create man dir to avoid bug
+RUN mkdir -p /usr/share/man/man1 \
+    &&apt-get update \
     && apt-get install -y \
        openjdk-11-jre-headless \
-       r-base \
        wget \
     && wget -O /usr/local/bin/picard.jar $PICARD_URL \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
