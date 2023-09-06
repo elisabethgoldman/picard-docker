@@ -1,12 +1,8 @@
-ARG REPOSITORY=docker.osdc.io
-ARG BUILDER_TAG=2.2.0
-FROM ${REPOSITORY}/ncigdc/base-u22.04-builder:${BUILDER_TAG}
+FROM ubuntu:20.04 as builder
 
 MAINTAINER Charles Czysz <czysz@uchicago.edu>
 
-ARG VERSION
-
-ENV PICARD_URL=https://github.com/broadinstitute/picard/releases/download/${VERSION}/picard.jar
+ENV PICARD_URL=https://github.com/broadinstitute/picard/releases/tag/2.26.10/picard.jar
 
 # Pre-create man dir to avoid bug
 RUN mkdir -p /usr/share/man/man1 \
